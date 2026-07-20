@@ -90,7 +90,7 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .tag-text .b { color: var(--color-black); }
 
 /* ═══ 顶部智能服务整体模块：完整态一张卡 / 收起态一张紧凑卡 ═══ */
-.agent-region { display: contents; --agent-surface: #FFF4E9; --agent-surface-soft: #FFF9F3; --agent-border: #FFD3A8; --agent-divider: #F2D5B4; --agent-accent: #FF6200; --agent-radius: 24px; --agent-shadow: 0 10px 32px rgba(17,25,45,0.10); --compact-opacity: 0; --compact-backdrop-opacity: 0; --compact-backdrop-height: 191px; --compact-shift: 0px; --compact-scale: 0.985; --full-search-opacity: 1; --full-search-scale: 1; }
+.agent-region { display: contents; --agent-surface: #FFF4E9; --agent-surface-soft: #FFF9F3; --agent-border: #FFD3A8; --agent-divider: #F2D5B4; --agent-accent: #FF6200; --agent-radius: 24px; --agent-shadow: 0 10px 32px rgba(17,25,45,0.10); --compact-opacity: 0; --compact-backdrop-opacity: 0; --compact-backdrop-height: 211px; --compact-shift: 0px; --compact-scale: 0.985; --full-search-opacity: 1; --full-search-scale: 1; }
 .sticky-header { height: 0; padding-bottom: 0; background: transparent; overflow: visible; }
 .sticky-header .status-bar { background: #FFFFFF; }
 .sticky-header.is-collapsed { padding-bottom: 0; }
@@ -99,14 +99,14 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .sticky-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: var(--compact-backdrop-height); background: #FFFFFF; opacity: var(--compact-backdrop-opacity); will-change: opacity, height; pointer-events: none; }
 
 /* 收起态：固定尺寸覆盖接管，不再通过 max-height 从上向下展开 */
-.agent-compact { position: absolute; top: 12px; left: 12px; z-index: 2; width: 726px; height: 161px; margin: 0; border: none; border-radius: var(--agent-radius); background: var(--agent-surface); overflow: hidden; opacity: var(--compact-opacity); transform: translateY(var(--compact-shift)) scale(var(--compact-scale)); transform-origin: top center; box-shadow: var(--agent-shadow); will-change: opacity, transform; pointer-events: none; }
+.agent-compact { position: absolute; top: 12px; left: 12px; z-index: 2; width: 726px; height: 181px; margin: 0; border: none; border-radius: var(--agent-radius); background: var(--agent-surface); overflow: hidden; opacity: var(--compact-opacity); transform: translateY(var(--compact-shift)) scale(var(--compact-scale)); transform-origin: top center; box-shadow: var(--agent-shadow); will-change: opacity, transform; pointer-events: none; }
 .sticky-header.is-collapsed .agent-compact { pointer-events: auto; }
-.agent-compact .nav-bar { width: 724px; height: 88px; padding: 6px 16px; gap: 12px; background: transparent; }
-.agent-compact .nav-search { width: auto; height: 68px; flex: 1; min-width: 0; border-radius: 18px; background: rgba(255,255,255,0.72); }
+.agent-compact .nav-bar { width: 726px; height: 108px; padding: 16px; gap: 12px; background: transparent; }
+.agent-compact__logo { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; flex-shrink: 0; background: #F3F6F8; box-shadow: 0 0 0 1px rgba(17,25,45,0.08); }
+.agent-compact .nav-search { width: auto; height: 76px; flex: 1; min-width: 0; border-radius: 18px; padding: 10px 14px; background: rgba(255,255,255,0.66); }
 .agent-compact .nav-search::before { border-radius: 18px; }
 .agent-compact__divider { height: 1px; margin: 0 16px; background: var(--agent-divider); }
 .agent-float { width: 724px; height: 72px; padding: 0 14px; display: flex; align-items: center; gap: 10px; background: transparent; }
-.agent-float__logo { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; background: #F3F6F8; box-shadow: 0 0 0 1px rgba(17,25,45,0.08); }
 .agent-float__label { color: #C0510F; font-size: 22px; font-weight: 700; line-height: 1; white-space: nowrap; flex-shrink: 0; font-family: 'PingFang SC'; }
 .agent-float__recommendations { min-width: 0; flex: 1; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; }
 .agent-float__chip { height: 42px; padding: 0 13px; border: 1px solid #FFC79A; border-radius: 21px; background: rgba(255,255,255,0.82); color: #FF6200; font-size: 20px; font-weight: 600; line-height: 40px; white-space: nowrap; flex-shrink: 0; font-family: 'PingFang SC'; }
@@ -116,50 +116,56 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 
 /* 完整态：搜索、店招与导购收进同一张悬浮 Agent 卡 */
 .agent-fusion { width: 750px; background: #FFFFFF; padding: 12px 12px 24px; border-radius: 0; border: none; box-shadow: none; }
-.agent-fusion__card { width: 726px; background: #FFFFFF; border: none; border-radius: var(--agent-radius); overflow: hidden; box-shadow: var(--agent-shadow); }
-.af-search { width: 726px; height: 96px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; opacity: var(--full-search-opacity); transform: scale(var(--full-search-scale)); transform-origin: top center; will-change: opacity, transform; }
+.agent-fusion__card { width: 726px; background: #FFF4E9; border: none; border-radius: var(--agent-radius); overflow: hidden; box-shadow: var(--agent-shadow); }
+.af-top-shell { width: 726px; height: 108px; padding: 16px; display: flex; align-items: center; gap: 12px; background: #FFF4E9; }
+.af-top-switch { height: 76px; min-width: 0; flex: 1; position: relative; perspective: 1400px; -webkit-perspective: 1400px; background: transparent; }
+.af-top-switch__inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; transition: transform 0.76s cubic-bezier(0.22,0.78,0.20,1); will-change: transform; }
+.af-top-switch.is-search .af-top-switch__inner { transform: rotateX(-180deg); }
+.af-top-face { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; border: 1px solid rgba(255,164,94,0.58); border-radius: 18px; background: rgba(255,255,255,0.66); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.af-top-face--store { z-index: 2; border-color: transparent; background: transparent; transform: rotateX(0deg); }
+.af-top-face--search { transform: rotateX(180deg); }
+.af-top-switch.is-search .af-top-face--store { pointer-events: none; }
+.af-top-switch:not(.is-search) .af-top-face--search { pointer-events: none; }
+.af-search { width: 100%; height: 100%; padding: 0; display: flex; align-items: center; background: transparent; opacity: var(--full-search-opacity); transform: scale(var(--full-search-scale)); transform-origin: center center; will-change: opacity, transform; }
 .af-back { width: 40px; height: 40px; flex-shrink: 0; }
-.af-search-box { height: 72px; flex: 1; min-width: 0; border-radius: 18px; position: relative; padding: 10px 18px 10px 14px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; }
-.af-search-box::before { content: ''; position: absolute; inset: 0; border-radius: 18px; padding: 1px; background: linear-gradient(110deg,#FF7A23,#FF0036,#FF7A23); -webkit-mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; opacity: 0.82; }
+.af-search-box { width: 100%; height: 100%; flex: 1; min-width: 0; position: relative; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; background: transparent; }
+.af-search-box::before { display: none; }
 .af-more { width: 44px; height: 44px; flex-shrink: 0; }
+.af-mode-toggle { width: 44px; height: 44px; padding: 0; border: none; border-radius: 22px; background: transparent; color: #9C7542; display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; transition: color 0.18s ease, background 0.18s ease, transform 0.24s ease; }
+.af-mode-toggle svg { width: 34px; height: 34px; display: block; }
+.af-mode-toggle:active { color: #FF6200; background: rgba(255,98,0,0.10); transform: scale(0.92); }
 .af-section-divider { display: none; }
 .af-agent-card { width: 726px; margin-top: 0; background: #FFF4E9; border: none; border-radius: 0; overflow: hidden; box-shadow: none; }
-.af-store { display: flex; align-items: center; padding: 18px 20px 12px; gap: 16px; background: transparent; }
+.af-store { width: 100%; height: 100%; display: flex; align-items: center; padding: 10px 14px; background: transparent; }
 .af-logo { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; flex-shrink: 0; background: #F3F6F8; }
 .af-detail { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
-.af-name-row { display: flex; align-items: center; gap: 6px; height: 30px; }
-.af-name { font-size: 30px; font-weight: 600; color: #11192D; line-height: 30px; font-family: 'PingFang SC'; white-space: nowrap; overflow: hidden; text-overflow: clip; max-width: 320px; }
-.af-tmall { width: 53px; height: 27px; flex-shrink: 0; }
-.af-cert { display: inline-flex; align-items: center; height: 27px; padding: 0 9px; border-radius: 7px; background: #1C2540; border: none; flex-shrink: 0; }
-.af-cert span { font-size: 18px; font-weight: 600; color: #E8C88A; line-height: 1; font-family: 'PingFang SC'; white-space: nowrap; }
-.af-meta-row { display: flex; align-items: center; margin-top: 12px; height: 24px; min-width: 0; }
-.af-stars { width: 93px; height: 17px; display: block; }
-.af-score { font-size: 20px; font-weight: 600; color: #FF0036; margin-left: 8px; line-height: 20px; font-family: 'PingFang SC'; }
+.af-name-row { display: flex; align-items: center; gap: 5px; height: 26px; }
+.af-name { font-size: 25px; font-weight: 600; color: #11192D; line-height: 26px; font-family: 'PingFang SC'; white-space: nowrap; overflow: hidden; text-overflow: clip; max-width: 275px; }
+.af-tmall { width: 47px; height: 24px; flex-shrink: 0; }
+.af-cert { display: inline-flex; align-items: center; height: 24px; padding: 0 7px; border-radius: 6px; background: #1C2540; border: none; flex-shrink: 0; }
+.af-cert span { font-size: 16px; font-weight: 600; color: #E8C88A; line-height: 1; font-family: 'PingFang SC'; white-space: nowrap; }
+.af-meta-row { display: flex; align-items: center; margin-top: 8px; height: 22px; min-width: 0; }
+.af-stars { width: 82px; height: 15px; display: block; }
+.af-score { font-size: 18px; font-weight: 600; color: #FF0036; margin-left: 7px; line-height: 18px; font-family: 'PingFang SC'; }
 .af-divider { width: 2px; height: 18px; border-radius: 1px; background: #D8CBB6; margin: 0 8px; }
-.af-fans { font-size: 20px; font-weight: 400; color: #9C8A70; line-height: 20px; font-family: 'PingFang SC'; }
+.af-fans { font-size: 18px; font-weight: 400; color: #9C8A70; line-height: 18px; font-family: 'PingFang SC'; }
 .af-divider--tag { width: 1px; height: 16px; margin: 0 8px; background: rgba(216,203,182,0.85); }
-.af-store-flip { width: 136px; height: 24px; border-radius: 7px; background: rgba(255,255,255,0.68); border: 1px solid rgba(232,201,153,0.56); overflow: hidden; flex-shrink: 0; color: #8C6B34; font-family: 'PingFang SC'; }
+.af-store-flip { width: 120px; height: 22px; border-radius: 6px; background: rgba(255,255,255,0.68); border: 1px solid rgba(232,201,153,0.56); overflow: hidden; flex-shrink: 0; color: #8C6B34; font-family: 'PingFang SC'; }
 .af-store-flip-track { display: flex; flex-direction: column; transform-origin: center center; animation: storeTagFlip 10s infinite; }
-.af-store-flip-item { width: 134px; height: 22px; padding: 0 8px; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 18px; font-weight: 500; line-height: 22px; white-space: nowrap; }
-.af-store-flip-icon { color: #E5A33A; font-size: 16px; line-height: 1; }
+.af-store-flip-item { width: 118px; height: 20px; padding: 0 6px; display: flex; align-items: center; justify-content: center; gap: 3px; font-size: 16px; font-weight: 500; line-height: 20px; white-space: nowrap; }
+.af-store-flip-icon { color: #E5A33A; font-size: 14px; line-height: 1; }
 @keyframes storeTagFlip {
   0%,16% { transform: translateY(0) rotateX(0deg); }
-  20%,36% { transform: translateY(-22px) rotateX(0deg); }
-  40%,56% { transform: translateY(-44px) rotateX(0deg); }
-  60%,76% { transform: translateY(-66px) rotateX(0deg); }
-  80%,96% { transform: translateY(-88px) rotateX(0deg); }
+  20%,36% { transform: translateY(-20px) rotateX(0deg); }
+  40%,56% { transform: translateY(-40px) rotateX(0deg); }
+  60%,76% { transform: translateY(-60px) rotateX(0deg); }
+  80%,96% { transform: translateY(-80px) rotateX(0deg); }
   18%,38%,58%,78% { filter: blur(0.2px); }
-  100% { transform: translateY(-88px) rotateX(0deg); }
+  100% { transform: translateY(-80px) rotateX(0deg); }
 }
-.af-follow { width: 92px; height: 60px; border-radius: 12px; background: #FF6200; color: #FFFFFF; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-left: auto; flex-shrink: 0; font-family: 'PingFang SC'; }
-.af-split { display: none; }
-.af-guide { position: relative; margin: 10px 16px 18px; padding: 18px 16px 18px; background: #FFFFFF; border: 1px solid rgba(255,164,94,0.72); border-radius: 22px; box-shadow: 0 8px 22px rgba(145,72,18,0.08); }
-.af-guide::before { content: ''; position: absolute; left: 32px; top: -10px; width: 18px; height: 18px; background: #FFFFFF; border-left: 1px solid rgba(255,164,94,0.72); border-top: 1px solid rgba(255,164,94,0.72); border-radius: 4px 0 0 0; transform: rotate(45deg); }
-.af-guide-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-.af-star { width: 30px; height: 30px; flex-shrink: 0; position: relative; top: 1px; }
-.af-gname { font-size: 26px; font-weight: 700; color: #C0510F; line-height: 1; font-family: 'PingFang SC'; }
-.af-gstats { font-size: 20px; font-weight: 400; color: #B8935A; line-height: 1; font-family: 'PingFang SC'; }
-.af-gstats b { color: #C0510F; font-weight: 600; }
+.af-follow { display: none; }
+.af-split { height: 1px; margin: 0 20px; background: rgba(188,132,76,0.20); }
+.af-guide { padding: 16px 20px 18px; background: transparent; }
 .af-speech { font-size: 26px; font-weight: 400; color: #4A3520; line-height: 40px; font-family: 'PingFang SC'; }
 .af-speech strong { color: #FF6200; font-weight: 600; }
 .af-chips { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: nowrap; }
@@ -167,6 +173,9 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .af-refresh { width: 44px; height: 44px; margin-left: auto; padding: 0; border: none; border-radius: 22px; background: transparent; color: #B8935A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease; }
 .af-refresh svg { width: 27px; height: 27px; display: block; }
 .af-refresh:active { color: #FF6200; background: rgba(255,98,0,0.10); transform: rotate(28deg) scale(0.94); }
+@media (prefers-reduced-motion: reduce) {
+  .af-top-switch__inner { transition-duration: 0.01ms; }
+}
 
 /* 分类导航 */
 .category-nav { width: 750px; height: 88px; background: #FFFFFF; display: flex; align-items: center; position: relative; }
@@ -290,6 +299,7 @@ body[data-tab="vip"] .af-chips { display: none; }
   <!-- 2. 导航栏 -->
   <div class="nav-bar">
     <img class="nav-back" src="https://img.alicdn.com/imgextra/i3/O1CN01ZWwU461c6PZIJYfC4_!!6000000003551-2-tps-80-80.png" alt="返回">
+    <img class="agent-compact__logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMTQ0IDE0NCI+PHJlY3Qgd2lkdGg9IjE0NCIgaGVpZ2h0PSIxNDQiIHJ4PSIyOCIgZmlsbD0iI0Q0MkIxRSIvPjxjaXJjbGUgY3g9IjcyIiBjeT0iNzIiIHI9IjQ2IiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNzIiIHk9Ijk0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSI2MiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI0Q0MkIxRSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+JiM5Mzc7PC90ZXh0Pjwvc3ZnPg==" alt="lululemon 店铺 Logo">
     <div class="nav-search">
       <div class="search-left">
         <img class="search-star" src="https://img.alicdn.com/imgextra/i4/O1CN01EGLIPY1oGjtFx3gfA_!!6000000005198-2-tps-106-106.png" alt="四角星">
@@ -300,9 +310,8 @@ body[data-tab="vip"] .af-chips { display: none; }
     <img class="nav-more" src="https://img.alicdn.com/imgextra/i1/O1CN01wGCHQC1v1LtUlSgpl_!!6000000006112-2-tps-60-60.png" alt="更多">
   </div>
       <div class="agent-compact__divider"></div>
-      <!-- Agent 区域收起态：店铺 Logo + 专属导购推荐 -->
+      <!-- Agent 区域收起态：专属导购推荐 -->
   <div class="agent-float" aria-label="专属导购推荐">
-    <img class="agent-float__logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMTQ0IDE0NCI+PHJlY3Qgd2lkdGg9IjE0NCIgaGVpZ2h0PSIxNDQiIHJ4PSIyOCIgZmlsbD0iI0Q0MkIxRSIvPjxjaXJjbGUgY3g9IjcyIiBjeT0iNzIiIHI9IjQ2IiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNzIiIHk9Ijk0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSI2MiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI0Q0MkIxRSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+JiM5Mzc7PC90ZXh0Pjwvc3ZnPg==" alt="lululemon 店铺">
     <span class="agent-float__label">专属导购推荐：</span>
     <div class="agent-float__recommendations" aria-live="polite">
       <span class="agent-float__chip">骑行短裤</span>
@@ -317,8 +326,13 @@ body[data-tab="vip"] .af-chips { display: none; }
   <!-- Agent 区域完整态：店招 + 店铺标签 + 专属导购 -->
   <div class="agent-fusion">
     <div class="agent-fusion__card">
-      <div class="af-search">
+      <div class="af-top-shell">
         <img class="af-back" src="https://img.alicdn.com/imgextra/i3/O1CN01ZWwU461c6PZIJYfC4_!!6000000003551-2-tps-80-80.png" alt="返回">
+        <img class="af-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMTQ0IDE0NCI+PHJlY3Qgd2lkdGg9IjE0NCIgaGVpZ2h0PSIxNDQiIHJ4PSIyOCIgZmlsbD0iI0Q0MkIxRSIvPjxjaXJjbGUgY3g9IjcyIiBjeT0iNzIiIHI9IjQ2IiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNzIiIHk9Ijk0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSI2MiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI0Q0MkIxRSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+JiM5Mzc7PC90ZXh0Pjwvc3ZnPg==" alt="lululemon 店铺 Logo">
+      <div class="af-top-switch" id="afTopSwitch" data-state="store" aria-live="polite">
+        <div class="af-top-switch__inner">
+          <div class="af-top-face af-top-face--search" aria-hidden="true">
+            <div class="af-search">
         <div class="af-search-box">
           <div class="search-left">
             <img class="search-star" src="https://img.alicdn.com/imgextra/i4/O1CN01EGLIPY1oGjtFx3gfA_!!6000000005198-2-tps-106-106.png" alt="四角星">
@@ -326,12 +340,10 @@ body[data-tab="vip"] .af-chips { display: none; }
           </div>
           <img class="search-icon" src="https://img.alicdn.com/imgextra/i1/O1CN01JOzDdV1F4MdRR0Bp7_!!6000000000433-2-tps-80-80.png" alt="搜索">
         </div>
-        <img class="af-more" src="https://img.alicdn.com/imgextra/i1/O1CN01wGCHQC1v1LtUlSgpl_!!6000000006112-2-tps-60-60.png" alt="更多">
-      </div>
-      <div class="af-section-divider"></div>
-      <div class="af-agent-card">
-      <div class="af-store">
-        <img class="af-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMTQ0IDE0NCI+PHJlY3Qgd2lkdGg9IjE0NCIgaGVpZ2h0PSIxNDQiIHJ4PSIyOCIgZmlsbD0iI0Q0MkIxRSIvPjxjaXJjbGUgY3g9IjcyIiBjeT0iNzIiIHI9IjQ2IiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNzIiIHk9Ijk0IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSI2MiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI0Q0MkIxRSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+JiM5Mzc7PC90ZXh0Pjwvc3ZnPg==" alt="Logo">
+            </div>
+          </div>
+          <div class="af-top-face af-top-face--store" aria-hidden="false">
+            <div class="af-store">
         <div class="af-detail">
           <div class="af-name-row">
             <span class="af-name">lululemon官方旗舰店</span>
@@ -355,16 +367,20 @@ body[data-tab="vip"] .af-chips { display: none; }
             </div>
           </div>
         </div>
-        <div class="af-follow">关注</div>
+            </div>
+          </div>
+        </div>
       </div>
-
+        <button class="af-mode-toggle" id="afModeToggle" type="button" aria-label="切换为搜索" title="切换店招与搜索">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6 10h17.5M20 6.5l3.5 3.5-3.5 3.5M26 22H8.5M12 18.5 8.5 22l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="af-section-divider"></div>
+      <div class="af-agent-card">
       <div class="af-split"></div>
       <div class="af-guide">
-        <div class="af-guide-head">
-          <img class="af-star" src="https://img.alicdn.com/imgextra/i4/O1CN01EGLIPY1oGjtFx3gfA_!!6000000005198-2-tps-106-106.png" alt="专属导购">
-          <span class="af-gname">专属导购</span>
-          <span class="af-gstats">已服务 <b>728</b> 次</span>
-        </div>
         <div class="af-speech">最近你都在搜<strong>骑行</strong>相关的商品——7 月上新的 <strong>Warm-Up 系列</strong>主打骑行场景，吸汗排湿，已为你优先展示 ↓</div>
         <div class="af-chips" aria-live="polite">
           <span class="af-chip">骑行短裤</span>
@@ -403,6 +419,11 @@ body[data-tab="vip"] .af-chips { display: none; }
     var agentRegion = document.getElementById('agentRegion');
     var header = document.querySelector('.sticky-header');
     var agentFull = document.querySelector('.agent-fusion');
+    var agentTopSwitch = document.getElementById('afTopSwitch');
+    var storeFace = agentTopSwitch && agentTopSwitch.querySelector('.af-top-face--store');
+    var searchFace = agentTopSwitch && agentTopSwitch.querySelector('.af-top-face--search');
+    var modeToggle = document.getElementById('afModeToggle');
+    var autoModeTimer = 0;
     var refreshButtons = document.querySelectorAll('.agent-recommendation-refresh');
     var floatRecommendationItems = document.querySelectorAll('.agent-float__chip');
     var fullRecommendationItems = document.querySelectorAll('.af-chip');
@@ -413,11 +434,44 @@ body[data-tab="vip"] .af-chips { display: none; }
       ['Warm-Up 系列', '夏日速干', '出行装备'],
       ['骑行水壶', '防晒袖套', '男士热卖']
     ];
+    function setAgentTopMode(mode){
+      if(!agentTopSwitch){ return; }
+      var isSearch = mode === 'search';
+      agentTopSwitch.classList.toggle('is-search', isSearch);
+      agentTopSwitch.dataset.state = isSearch ? 'search' : 'store';
+      if(storeFace){ storeFace.setAttribute('aria-hidden', isSearch ? 'true' : 'false'); }
+      if(searchFace){ searchFace.setAttribute('aria-hidden', isSearch ? 'false' : 'true'); }
+      if(modeToggle){ modeToggle.setAttribute('aria-label', isSearch ? '切换为店招' : '切换为搜索'); }
+    }
+    // 进店先用店招完成身份确认；页面可见后停留 2 秒，再一次性翻转为搜索入口。
+    function scheduleStoreToSearch(){
+      autoModeTimer = window.setTimeout(function(){
+        autoModeTimer = 0;
+        setAgentTopMode('search');
+      }, 2000);
+    }
+    function restartStoreToSearch(){
+      if(autoModeTimer){ window.clearTimeout(autoModeTimer); autoModeTimer = 0; }
+      setAgentTopMode('store');
+      scheduleStoreToSearch();
+    }
+    window.__restartAgentTopFlip = restartStoreToSearch;
+    if(document.readyState === 'complete'){
+      restartStoreToSearch();
+    } else {
+      window.addEventListener('load', restartStoreToSearch, { once: true });
+    }
+    if(modeToggle){
+      modeToggle.addEventListener('click', function(){
+        if(autoModeTimer){ window.clearTimeout(autoModeTimer); autoModeTimer = 0; }
+        setAgentTopMode(agentTopSwitch.dataset.state === 'search' ? 'store' : 'search');
+      });
+    }
     // 供 tab 切换替换推荐组
     window.__getCollapseThreshold = function(){
       if(!agentFull){ return 320; }
-      // 完整 Agent 的尾部刚好被 191px 高的吸顶白底遮住时，完成缩略态。
-      return Math.max(0, agentFull.offsetTop + agentFull.offsetHeight - 191);
+      // 完整 Agent 的尾部刚好被 211px 高的吸顶白底遮住时，完成缩略态。
+      return Math.max(0, agentFull.offsetTop + agentFull.offsetHeight - 211);
     };
     window.__setAgentBatches = function(batches){
       recommendationBatches = batches;
@@ -431,12 +485,12 @@ body[data-tab="vip"] .af-chips { display: none; }
       if(!agentFull || !agentRegion){ return; }
 
       var bottom = agentFull.getBoundingClientRect().bottom;
-      // 完整卡尾部从 287px 移到 191px 的过程中连续交接；完成时完整态已被白底完全遮住。
-      var progress = Math.max(0, Math.min(1, (287 - bottom) / 96));
+      // 完整卡尾部从 307px 移到 211px 的过程中连续交接；完成时完整态已被白底完全遮住。
+      var progress = Math.max(0, Math.min(1, (307 - bottom) / 96));
       // 卡片内容采用 ease-out 提前建立识别，白色遮挡层更快变实，消除两种状态文字叠影。
       var compactOpacity = 1 - Math.pow(1 - progress, 3);
       var compactBackdropOpacity = Math.min(1, progress * 4);
-      var compactBackdropHeight = Math.max(191, Math.min(287, bottom));
+      var compactBackdropHeight = Math.max(211, Math.min(307, bottom));
       // 缩略卡始终锚定在同一位置，只做淡入与轻微缩放，避免纵向“吐出”感。
       var compactShift = 0;
       var compactScale = 0.985 + 0.015 * compactOpacity;
@@ -477,7 +531,7 @@ body[data-tab="vip"] .af-chips { display: none; }
       fullRecommendationItems.forEach(function(item, index){ item.textContent = batch[index]; });
     }
 
-    if(refreshButtons.length >= 1 && floatRecommendationItems.length === 3 && fullRecommendationItems.length === 3){
+    if(refreshButtons.length >= 1 && floatRecommendationItems.length === 3){
       refreshButtons.forEach(function(button){
         button.addEventListener('click', function(event){
           event.stopPropagation();
@@ -607,7 +661,6 @@ body[data-tab="vip"] .af-chips { display: none; }
   var feedHome = document.getElementById('feedHome');
   var feedGoods = document.getElementById('feedGoods');
   var speechEl = document.querySelector('.af-speech');
-
   var tabData = {
     home: {
       speech: '最近你都在搜<strong>骑行</strong>相关的商品——7 月上新的 <strong>Warm-Up 系列</strong>主打骑行场景，吸汗排湿，已为你优先展示 \u2193',
@@ -698,6 +751,7 @@ body[data-tab="vip"] .af-chips { display: none; }
     // Agent 话术与推荐跟随 tab
     if(speechEl){ speechEl.innerHTML = tabData[name].speech; }
     if(window.__setAgentBatches){ window.__setAgentBatches(tabData[name].batches); }
+    if(window.__restartAgentTopFlip){ window.__restartAgentTopFlip(); }
     // 状态保持:切换前是收起态则切换后仍为收起态
     var wasCollapsed = header.classList.contains('is-collapsed');
     var th = window.__getCollapseThreshold ? window.__getCollapseThreshold() : 200;
@@ -706,7 +760,6 @@ body[data-tab="vip"] .af-chips { display: none; }
   tabHome.addEventListener('click', function(){ switchTab('home'); });
   tabGoods.addEventListener('click', function(){ switchTab('goods'); });
   tabVip.addEventListener('click', function(){ switchTab('vip'); });
-
   // 券倒计时
   (function(){
     var el = document.getElementById('cpCountdown');
